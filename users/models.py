@@ -8,14 +8,14 @@ NULLABLE = {'null': True, 'blank': True}
 
 
 class User(AbstractUser):
-    username = None
+    username = models.CharField(max_length=150, unique=True)
 
     email = models.EmailField(verbose_name='email', unique=True)
     first_name = models.CharField(max_length=45, verbose_name='имя', **NULLABLE)
     last_name = models.CharField(max_length=45, verbose_name='имя', **NULLABLE)
     phone = models.CharField(max_length=15, verbose_name='телефон', **NULLABLE)
     is_staff = models.BooleanField(default=False, verbose_name='сотрудник')
-    is_active = models.BooleanField(default=False, verbose_name='активность')
+    is_active = models.BooleanField(default=True, verbose_name='активность')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

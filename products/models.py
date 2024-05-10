@@ -54,10 +54,10 @@ class Supplier(models.Model):
     city = models.CharField(max_length=100, verbose_name='город')
     street = models.CharField(max_length=100, verbose_name='улица')
     house = models.CharField(max_length=100, verbose_name='номер дома')
-    type = models.CharField(choices=supplier_type, verbose_name='тип поставщика')
+    type_supplier = models.CharField(choices=supplier_type, verbose_name='тип поставщика')
 
     def __str__(self):
-        return f'Производитель: {self.title}, Тип поставщика: {self.type}'
+        return f'Производитель: {self.title}, Тип поставщика: {self.type_supplier}'
 
     class Meta:
         verbose_name = 'Поставщик'
