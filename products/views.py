@@ -1,8 +1,9 @@
 import django_filters
+from rest_framework import generics, viewsets
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.permissions import AllowAny
 
 from products.models import Producer, Supplier
-from rest_framework import generics, viewsets
 from products.permissions import ActiveEmployee
 
 from products.serializers import ProducerSerializer, SupplierSerializer
@@ -15,8 +16,9 @@ class ProducerAPIView(generics.ListAPIView):
 
 
 class ProducerCreateAPIView(generics.CreateAPIView):
+    queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
-    permission_classes = [ActiveEmployee]
+    permission_classes = [AllowAny]
 
 
 class ProducerRetrieveAPIView(generics.RetrieveAPIView):
