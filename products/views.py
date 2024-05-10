@@ -18,7 +18,7 @@ class ProducerAPIView(generics.ListAPIView):
 class ProducerCreateAPIView(generics.CreateAPIView):
     queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [ActiveEmployee]
 
 
 class ProducerRetrieveAPIView(generics.RetrieveAPIView):
